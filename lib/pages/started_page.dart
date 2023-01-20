@@ -6,29 +6,32 @@ class StartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF35323d),
+      backgroundColor: const Color(0xFF35323d),
       body: Column(
         children: <Widget>[
+          SizedBox(
+            height: 20.0,
+          ),
           Image.asset('images/stpge.png',
           ),
-          SizedBox(
+          const SizedBox(
             height: 40.0,
           ),
           ElevatedButton(
               onPressed: () {},
-              child: Text(
-                'Get Started Learning'
-              ),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFffd80b),
+              backgroundColor: const Color(0xFFffd80b),
               foregroundColor: Colors.black,
               elevation: 0,
-              shape: StadiumBorder(),
-              padding: EdgeInsets.symmetric(
+              shape: const StadiumBorder(),
+              padding: const EdgeInsets.symmetric(
                 vertical: 20.0,
                 horizontal: 10.0,
               )
             ),
+              child: const Text(
+                'Get Started Learning'
+              ),
           )
         ],
       ),
