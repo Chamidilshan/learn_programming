@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_programming/pages/home_page.dart';
 
 class StartedPage extends StatelessWidget {
   const StartedPage({Key? key}) : super(key: key);
@@ -47,7 +48,13 @@ class StartedPage extends StatelessWidget {
           SizedBox(
             width: 200.0,
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(
+                      builder: (context) => HomePage()
+                  ),
+                  );
+                },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFFffd80b),
                 foregroundColor: Colors.black,
