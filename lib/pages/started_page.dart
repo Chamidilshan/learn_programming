@@ -9,29 +9,59 @@ class StartedPage extends StatelessWidget {
       backgroundColor: const Color(0xFF35323d),
       body: Column(
         children: <Widget>[
-          SizedBox(
-            height: 20.0,
+          const SizedBox(
+            height: 80.0,
           ),
           Image.asset('images/stpge.png',
           ),
           const SizedBox(
-            height: 40.0,
+            height: 60.0,
           ),
-          ElevatedButton(
-              onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFffd80b),
-              foregroundColor: Colors.black,
-              elevation: 0,
-              shape: const StadiumBorder(),
-              padding: const EdgeInsets.symmetric(
-                vertical: 20.0,
-                horizontal: 10.0,
-              )
+          const Text(
+            'Explore courses\nMaster your skills',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 28.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
-              child: const Text(
-                'Get Started Learning'
+          ),
+          const SizedBox(
+            height: 25.0,
+          ),
+          const Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 40.0),
+            child: Text(
+              'Coding skills can help you on your \nway to a '
+                  'successful career path.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 14.0,
               ),
+            ),
+          ),
+          const SizedBox(
+            height: 50.0,
+          ),
+          SizedBox(
+            width: 200.0,
+            child: ElevatedButton(
+                onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFffd80b),
+                foregroundColor: Colors.black,
+                elevation: 0,
+                shape: const StadiumBorder(),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20.0,
+                  horizontal: 10.0,
+                )
+              ),
+                child: const Text(
+                  'Start Learning Today'
+                ),
+            ),
           )
         ],
       ),
