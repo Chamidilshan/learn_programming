@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:learn_programming/widgets/institutes_button.dart';
 import 'package:learn_programming/widgets/language_button.dart';
+import 'package:learn_programming/models/institutes_card_model.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -72,11 +74,26 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          Languages(),
+          Row(
+            children: [
+              Text(
+                'Institutes With Free Certifications',
+                style: Theme.of(context).textTheme.headline6,
+              )
+            ],
+          ),
           SizedBox(
             height: 20.0,
           ),
-          Languages(),
+          Institutes(),
+          SizedBox(
+            height: 20.0,
+          ),
+         // Languages(),
+          SizedBox(
+            height: 20.0,
+          ),
+          //Languages(),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_programming/models/languages_card_model.dart';
 
 class Languages extends StatelessWidget {
   const Languages({Key? key}) : super(key: key);
@@ -29,19 +30,19 @@ class Languages extends StatelessWidget {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
-                          child: Image.asset('images/c.png',
-                          height: 150.0,
+                          child: Image.asset(languages[index].image,
+                          height: 160.0,
                             width: double.maxFinite,
                             fit: BoxFit.cover,
                           ),
                         ),
                         SizedBox(
-                          height: 10.0,
+                          height: 20.0,
                         ),
                         Row(
                           children: [
                             Text(
-                              'C Programming',
+                              languages[index].name,
                               style: TextStyle(
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
@@ -59,7 +60,7 @@ class Languages extends StatelessWidget {
           separatorBuilder: (context, index) => Padding(
         padding: EdgeInsets.only(right:10.0),
           ),
-        itemCount: 5,
+        itemCount: languages.length,
       ),
     );
   }
