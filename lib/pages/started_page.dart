@@ -9,6 +9,7 @@ class StartedPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF35323d),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           const SizedBox(
             height: 80.0,
@@ -69,7 +70,8 @@ class StartedPage extends StatelessWidget {
                   'Start Learning Today'
                 ),
             ),
-          )
+          ),
+          Spacer(),
         ],
       ),
     );

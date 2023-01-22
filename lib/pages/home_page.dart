@@ -69,6 +69,14 @@ class HomePage extends StatelessWidget {
             height: 20.0,
           ),
           Languages(),
+          SizedBox(
+            height: 20.0,
+          ),
+          Languages(),
+          SizedBox(
+            height: 20.0,
+          ),
+          Languages(),
         ],
       ),
     );
