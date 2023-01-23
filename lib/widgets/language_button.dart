@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_programming/models/languages_card_model.dart';
+import 'package:learn_programming/pages/language_pages/cLang.dart';
 
 class Languages extends StatelessWidget {
   const Languages({Key? key}) : super(key: key);
@@ -23,7 +24,14 @@ class Languages extends StatelessWidget {
                 ),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(12),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CPage(),
+                        )
+                    );
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(

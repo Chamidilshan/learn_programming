@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_programming/widgets/institutes_button.dart';
 import 'package:learn_programming/widgets/language_button.dart';
 import 'package:learn_programming/models/institutes_card_model.dart';
+import 'package:learn_programming/pages/language_pages/cLang.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
             height: 180.0,
             width: 300.0,
             decoration: BoxDecoration(
-              color: Color(0xFF35323e),
+              color: Color(0xFF35323d),
               borderRadius: BorderRadius.circular(16.0),
             ),
             child: Column(
