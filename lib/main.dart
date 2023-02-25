@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_programming/pages/home_page.dart';
+import 'package:learn_programming/pages/language_pages/cLang.dart';
+import 'package:learn_programming/widgets/language_button.dart';
 import 'pages/started_page.dart';
 
 void main() {
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: CPage(),
       debugShowCheckedModeBanner: false,
     );
   }
