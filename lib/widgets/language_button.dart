@@ -15,7 +15,8 @@ class Languages extends StatelessWidget {
           itemBuilder: (context, index){
             return SizedBox(
               width: 220.0,
-              child: Card( 
+              child: Card(
+                color:  Color(0XFFfef2e4),
                 elevation: 0.5,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(

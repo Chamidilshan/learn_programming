@@ -10,7 +10,7 @@ class CPage extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           decoration: BoxDecoration(
-              color: Color(0xFF35323d),
+              color: Colors.red,
             borderRadius: BorderRadius.circular(40)
           ),
           child: Column(
