@@ -64,17 +64,19 @@ class CPage extends StatelessWidget {
               shrinkWrap: true,
               padding: const EdgeInsets.all(8),
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  decoration: BoxDecoration(
+                return Card(
+                  color: Color(0xFF124f50),
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
-                    color: Color(0xFF124f50),
                   ),
-                  padding: EdgeInsets.symmetric(),
-                  height: 50,
-                  child: const Center(child: Text('Course Name')),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(),
+                    height: 50,
+                    child: const Center(child: Text('Course Name')),
+                  ),
                 );
               },
-              itemCount: 5,
+              itemCount: 10,
             )
           ],
         ),
