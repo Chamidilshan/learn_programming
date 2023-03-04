@@ -1,6 +1,11 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:learn_programming/main.dart';
 import 'package:learn_programming/models/languages_card_model.dart';
 import 'package:supabase/supabase.dart';
+import 'package:learn_programming/models/course_model.dart';
 
 class CPage extends StatefulWidget {
 
@@ -9,95 +14,71 @@ class CPage extends StatefulWidget {
 }
 
 class _CPageState extends State<CPage> {
-
+  List? courses;
   @override
   void initState(){
     super.initState();
     _loadCourses();
   }
 
-  Future<void> _loadCourses() async{
-    final response = await supabase.from('courses').select().eq('java', language).execute();
-
+  Future<void> _loadCourses() async {
+    var response = await supabase
+        .from('courses')
+        .select()
+    .execute();
+    // final data = response.data as List<dynamic>;
+    // final courses = data.map((json) => Course.fromJson(json)).toList();
+    setState(() {
+      courses = response.data.toList();
+    });
   }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFFfeebcd),
-      appBar: AppBar(
-        backgroundColor: Color(0XFFfeebcd),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: 20.0,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(40.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color(0XFFfcac63),
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                padding: EdgeInsets.all(40.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'C',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      Text(
-                        'C is a general-purpose, high-level programming language that was '
-                            'developed in the early 1970s by Dennis Ritchie at '
-                            'Bell Labs. It is considered a "mid-level" '
-                            'language, as it has features of both high-level and low-level languages.',
-                      ),
-                    ],
+      body: Padding(
+        padding: const EdgeInsets.only(left: 10, top: 15, right: 10),
+        child: courses != null
+            ? GridView.builder(
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 16.00,
+                crossAxisSpacing: 6.00),
+            physics: const BouncingScrollPhysics(),
+            itemCount: courses?.length,
+            itemBuilder: (context, index) {
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                        (courses![index]["name"]).toString()),
                   ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 40.0),
-              child: Text(
-                  'Courses',
-                style: TextStyle(
-                  fontSize: 20.0
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(8),
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  color: Color(0xFF124f50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 16,
+                      top: 4,
+                      right: 16,
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.00),
+                          border: Border.all(color: Colors.blue, width: 1)),
+                      // child: CachedNetworkImage(
+                      //   imageUrl: dashList![index]["dash_image"],
+                      //   height: 118.00,
+                      //   width: 118.00,
+                      // ),
+                    ),
                   ),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(),
-                    height: 60,
-                    child: const Center(child: Text('Course Name')),
-                  ),
-                );
-              },
-              itemCount: 10,
-            )
-          ],
+                ],
+              );
+            })
+            : const Center(
+          child: Text("No Data Found"),
         ),
       ),
     );

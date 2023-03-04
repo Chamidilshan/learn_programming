@@ -6,20 +6,22 @@ import 'pages/started_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 
-void main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-
+Future<void> main() async{
   await Supabase.initialize(
     url: 'https://roecbtdjbxtdaefkyjet.supabase.co',
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZWNidGRqYnh0ZGFlZmt5amV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc3Njg3ODYsImV4cCI6MTk5MzM0NDc4Nn0.AZOHPzx_hfUQMPeQZfkHWYvSg1pFoULYFY8qj1OiyDw',
   );
 
-  runApp(const MyApp());
+  runApp( MyApp());
+}
+final supabase = Supabase.instance.client;
+
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

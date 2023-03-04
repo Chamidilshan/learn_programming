@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_programming/models/languages_card_model.dart';
 import 'package:learn_programming/pages/language_pages/cLang.dart';
+import 'package:learn_programming/pages/page.dart';
 
 class Languages extends StatelessWidget {
   const Languages({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class Languages extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CPage(),
+                            builder: (context) => CMPage(),
                         )
                     );
                   },
