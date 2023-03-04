@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:learn_programming/models/languages_card_model.dart';
+import 'package:supabase/supabase.dart';
 
-class CPage extends StatelessWidget {
-  const CPage({Key? key}) : super(key: key);
+class CPage extends StatefulWidget {
+
+  @override
+  State<CPage> createState() => _CPageState();
+}
+
+class _CPageState extends State<CPage> {
+
+  @override
+  void initState(){
+    super.initState();
+    _loadCourses();
+  }
+
+  Future<void> _loadCourses() async{
+    final response = await supabase.from('courses').select().eq('java', language).execute();
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +90,7 @@ class CPage extends StatelessWidget {
                   ),
                   child: Container(
                     padding: EdgeInsets.symmetric(),
-                    height: 50,
+                    height: 60,
                     child: const Center(child: Text('Course Name')),
                   ),
                 );
