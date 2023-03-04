@@ -12,6 +12,7 @@ class CMPage extends StatefulWidget {
 
 class _CMPageState extends State<CMPage> {
   late List<Course> courses = [];
+  bool isLoaded = false;
   @override
   void initState(){
     super.initState();
@@ -24,10 +25,12 @@ class _CMPageState extends State<CMPage> {
         .select()
         .execute();
      final data = response.data as List<dynamic>;
-    // final courses = data.map((json) => Course.fromJson(json)).toList();
     setState(() {
       courses = data.map((course) => Course.fromJson(course)).toList();
     });
+    if(courses!=null){
+       isLoaded = true;
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -86,24 +89,30 @@ class _CMPageState extends State<CMPage> {
             SizedBox(
               height: 20.0,
             ),
-            ListView.builder(
-              itemCount: courses.length,
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(8),
-              itemBuilder: (BuildContext context, int index) {
-                final course = courses[index];
-                return Card(
-                  color: Color(0xFF124f50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: Text(course.name),
-                  ),
-                );
-              },
-            )
+            Visibility(
+              visible: isLoaded,
+              child: ListView.builder(
+                itemCount: courses.length,
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(8),
+                itemBuilder: (BuildContext context, int index) {
+                  final course = courses[index];
+                  return Card(
+                    color: Color(0xFF124f50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 4),
+                      child: Text(course.name),
+                    ),
+                  );
+                },
+              ),
+              replacement: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
           ],
         ),
       ),
