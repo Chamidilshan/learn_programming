@@ -44,26 +44,38 @@ class _CoursesPageState extends State<CoursesPage> {
                           fontSize: 14.0,
                       ),
                     ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          width: 50.0,
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            color: Colors.white12
+                          ),
+                          width: 360.0,
+                          height: 110.0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text('C is a general-purpose, high-level programming language that was '
+                                'developed in the early 1970s by Dennis Ritchie at '
+                                'Bell Labs. It is considered a "mid-level" '
+                                'language, as it has features of both high-level and low-level languages.',
+                              style: TextStyle(
+                                color: Colors.grey
+                              ),
+                            ),
+                          ),
                         ),
-                        Image.asset('images/assC.png', width: 180.0,),
-                        // Container(
-                        //   decoration: BoxDecoration(
-                        //     borderRadius: BorderRadius.circular(10.0),
-                        //     color: Colors.white,
-                        //   ),
-                        //   child: Text('Most Popular'),
-                        // ),
+                        // Image.asset('images/assC.png', width: 140.0,),
                       ],
                     )
                   ],
                 ),
               ),
-              height: 320.0,
+              height: 280.0,
               width: double.infinity,
               decoration: BoxDecoration(
               ),
