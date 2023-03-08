@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_programming/pages/course_page.dart';
 import 'package:learn_programming/pages/home_page.dart';
 import 'package:learn_programming/pages/language_pages/cLang.dart';
 import 'package:learn_programming/widgets/language_button.dart';
@@ -25,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: StartedPage(),
+      home: CoursesPage(),
       debugShowCheckedModeBanner: false,
     );
   }

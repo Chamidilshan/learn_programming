@@ -23,6 +23,7 @@ class _CMPageState extends State<CMPage> {
     var response = await supabase
         .from('courses')
         .select()
+        .eq('language', 'Python')
         .execute();
      final data = response.data as List<dynamic>;
     setState(() {
