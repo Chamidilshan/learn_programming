@@ -50,25 +50,25 @@ class _CoursesPageState extends State<CoursesPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            color: Colors.white12
-                          ),
-                          width: 360.0,
-                          height: 110.0,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text('C is a general-purpose, high-level programming language that was '
-                                'developed in the early 1970s by Dennis Ritchie at '
-                                'Bell Labs. It is considered a "mid-level" '
-                                'language, as it has features of both high-level and low-level languages.',
-                              style: TextStyle(
-                                color: Colors.grey
-                              ),
-                            ),
-                          ),
-                        ),
+                        // Container(
+                        //   decoration: BoxDecoration(
+                        //     borderRadius: BorderRadius.circular(20.0),
+                        //     color: Colors.white12
+                        //   ),
+                        //   width: 240.0,
+                        //   height: 110.0,
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.only(left: 10.0),
+                        //     child: Text('C is a general-purpose, high-level programming language that was '
+                        //         'developed in the early 1970s by Dennis Ritchie at '
+                        //         'Bell Labs. It is considered a "mid-level" '
+                        //         'language, as it has features of both high-level and low-level languages.',
+                        //       style: TextStyle(
+                        //         color: Colors.grey
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         // Image.asset('images/assC.png', width: 140.0,),
                       ],
                     )
@@ -100,7 +100,8 @@ class _CoursesPageState extends State<CoursesPage> {
                   SizedBox(
                     height: 20.0,
                   ),
-                  ListView.separated(itemCount: 10,shrinkWrap: true, itemBuilder: (context, index){
+                  ListView.separated(physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.vertical,itemCount: 10,shrinkWrap: true, itemBuilder: (context, index){
                     return GestureDetector(
                       onTap: () {print('Pressed');},
                       child: Container(

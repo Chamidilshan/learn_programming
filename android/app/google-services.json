@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "227232731856",
+    "project_id": "learn-programming-app",
+    "storage_bucket": "learn-programming-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227232731856:android:316f37bd1a4fda86d1c4d5",
+        "android_client_info": {
+          "package_name": "com.example.learn_programming"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227232731856-dju6da34ucdkfutr5oeg1jqb54r232kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWFXiSiQiKiiED_-GprdAXxYGet31EQUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227232731856-dju6da34ucdkfutr5oeg1jqb54r232kc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
