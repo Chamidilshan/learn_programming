@@ -11,7 +11,10 @@ class StartedPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Image.asset('images/stpge.png',
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Image.asset('images/stpge.png',
+            ),
           ),
           Column(
             children: const [
