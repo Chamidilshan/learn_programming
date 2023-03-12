@@ -10,14 +10,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF6F9FF),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFFffca9e), Color(0xFFfdf3e7) ]
-          )
-        ),
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //     begin: Alignment.topLeft,
+        //     end: Alignment.bottomRight,
+        //     colors: [Color(0xFFffca9e), Color(0xFFfdf3e7) ]
+        //   )
+        // ),
         child: ListView(
           padding: EdgeInsets.all(15.0),
           children: [
