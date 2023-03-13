@@ -5,6 +5,8 @@ import 'package:learn_programming/models/languages_card_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 
 class CoursesPage extends StatefulWidget {
@@ -87,7 +89,8 @@ class _CoursesPageState extends State<CoursesPage> {
                             ),
                           ],
                         ),
-                      ),
+                      ).animate()
+                            .fade(duration: 400.ms),
                       height: 540.0,
                       width: double.infinity,
                       decoration: BoxDecoration(

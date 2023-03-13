@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:learn_programming/models/languages_card_model.dart';
 import 'package:learn_programming/pages/course_page.dart';
 import 'package:learn_programming/pages/language_pages/cLang.dart';
@@ -72,7 +73,7 @@ class Languages extends StatelessWidget {
         padding: EdgeInsets.only(right:10.0),
           ),
         itemCount: languages.length,
-      ),
+      ).animate().fade(duration: 600.ms),
     );
   }
 }
