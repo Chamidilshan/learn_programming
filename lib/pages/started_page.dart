@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_programming/pages/home_page.dart';
+import 'package:shimmer/shimmer.dart';
 
 class StartedPage extends StatelessWidget {
   const StartedPage({Key? key}) : super(key: key);
@@ -66,8 +67,12 @@ class StartedPage extends StatelessWidget {
                     horizontal: 10.0,
                   )
                 ),
-                  child: const Text(
-                    'Start Learning Today'
+                  child: Shimmer.fromColors(
+                    baseColor: Colors.black,
+                    highlightColor: Colors.white,
+                    child: const Text(
+                      'Start Learning Today'
+                    ),
                   ),
               ),
             ),
