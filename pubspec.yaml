@@ -39,6 +39,7 @@ dependencies:
   supabase_flutter: ^1.4.1
   firebase_core: ^2.7.1
   cloud_firestore: ^4.4.4
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:

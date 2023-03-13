@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:learn_programming/models/languages_card_model.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CoursesPage extends StatefulWidget {
-  final String language;
+  final LanguageCards languageCard;
 
-  const CoursesPage({super.key, required this.language});
+  const CoursesPage({super.key, required this.languageCard});
+
 
 
   @override
@@ -13,7 +16,12 @@ class CoursesPage extends StatefulWidget {
 }
 
 class _CoursesPageState extends State<CoursesPage> {
-  final Stream<QuerySnapshot> users = FirebaseFirestore.instance.collection('courses').where('name', isEqualTo: 'C').snapshots();
+  late Stream<QuerySnapshot> courses;
+  @override
+  void initState(){
+    super.initState();
+    courses = FirebaseFirestore.instance.collection('courses').where('name', isEqualTo: '${widget.languageCard.name}').snapshots();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +29,13 @@ class _CoursesPageState extends State<CoursesPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: StreamBuilder<QuerySnapshot>(
-            stream: users,
+            stream: courses,
             builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError){
-                return Text('Something went wrong');
+                return Container(child: Center(child: Text('Something went wrong')));
               }
               if(snapshot.connectionState == ConnectionState.waiting){
-                return Text('Loading');
+                return Container(child: Center(child: CircularProgressIndicator( color: Color(0xFFF6F9FF),)));
               }
 
               final data = snapshot.requireData;
@@ -37,38 +45,42 @@ class _CoursesPageState extends State<CoursesPage> {
                 children: [
                   Container(
                     child: Padding(
-                      padding: const EdgeInsets.all(28.0),
+                      padding: const EdgeInsets.only(top: 28.0, left: 28.0, right: 28.0),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('${widget.language} Proramming Languague',
-                            style: Theme.of(context).textTheme.headline6!.copyWith(color: Color(0xFF0050A6)),
-                          ),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          Text('C is a general-purpose, high-level programming language that was '
-                              'developed in the early 1970s by Dennis Ritchie at '
-                              'Bell Labs. It is considered a "mid-level" '
-                              'language, as it has features of both high-level and low-level languages.',
-                            style: TextStyle(
-                              color: Colors.black87
+                          Image.asset('images/edited.png', width: 350.0,),
+                          Container(
+                            padding: EdgeInsets.all(20.0),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFDD807),
+                              borderRadius: BorderRadius.circular(40.0)
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('${widget.languageCard.name} Proramming Languague',
+                                  style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.black),
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text('${widget.languageCard.description}',
+                                  style: TextStyle(
+                                      color: Colors.black54
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           SizedBox(
                             height: 20.0,
                           ),
-                          Text('C is a general-purpose, high-level programming language that was '
-                              'developed in the early 1970s by Dennis Ritchie at '
-                              'Bell Labs. It is considered a "mid-level" '
-                              'language, as it has features of both high-level and low-level languages.',
-                            style: TextStyle(
-                                color: Colors.black87
-                            ),
-                          ),
+
                         ],
                       ),
                     ),
-                    height: 240.0,
+                    height: 520.0,
                     width: double.infinity,
                     decoration: BoxDecoration(
                     ),
