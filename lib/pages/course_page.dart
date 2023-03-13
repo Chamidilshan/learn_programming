@@ -3,7 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CoursesPage extends StatefulWidget {
-  const CoursesPage({Key? key}) : super(key: key);
+  final String language;
+
+  const CoursesPage({super.key, required this.language});
+
 
   @override
   State<CoursesPage> createState() => _CoursesPageState();
@@ -37,7 +40,7 @@ class _CoursesPageState extends State<CoursesPage> {
                       padding: const EdgeInsets.all(28.0),
                       child: Column(
                         children: [
-                          Text('C Proramming Languague',
+                          Text('${widget.language} Proramming Languague',
                             style: Theme.of(context).textTheme.headline6!.copyWith(color: Color(0xFF0050A6)),
                           ),
                           SizedBox(

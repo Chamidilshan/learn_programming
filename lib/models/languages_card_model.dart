@@ -13,7 +13,8 @@ class LanguageCards{
 List<LanguageCards> languages = [
   LanguageCards(
       image: 'images/c.png',
-      name: 'C'),
+      name: 'C',
+  ),
   LanguageCards(
       image: 'images/java.png',
       name: 'Java'),

@@ -31,7 +31,7 @@ class Languages extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CoursesPage(),
+                            builder: (context) => CoursesPage(language: languages[index].name),
                         )
                     );
                   },
