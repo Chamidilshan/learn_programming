@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor:  Color(0xFFF6F9FF),),
       backgroundColor: Color(0xFFF6F9FF),
       body: Container(
         // decoration: BoxDecoration(
@@ -67,7 +68,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 40.0,
             ),
             Row(
               children: [
@@ -78,32 +79,30 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 20.0,
+              height: 60.0,
             ),
             Languages(),
             SizedBox(
               height: 20.0,
             ),
-            Row(
-              children: [
-                Text(
-                  'Institutes With Free Certifications',
-                  style: Theme.of(context).textTheme.headline6,
-                )
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Text(
+            //       'Institutes With Free Certifications',
+            //       style: Theme.of(context).textTheme.headline6,
+            //     )
+            //   ],
+            // ),
             SizedBox(
               height: 20.0,
             ),
-            Institutes(),
-            SizedBox(
-              height: 20.0,
-            ),
-           // Languages(),
-            SizedBox(
-              height: 20.0,
-            ),
-            //Languages(),
+            // Institutes(),
+            // SizedBox(
+            //   height: 20.0,
+            // ),
+            // SizedBox(
+            //   height: 20.0,
+            // ),
           ],
         ),
       ),

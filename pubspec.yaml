@@ -40,6 +40,9 @@ dependencies:
   firebase_core: ^2.7.1
   cloud_firestore: ^4.4.4
   font_awesome_flutter: ^10.4.0
+  animation_list: ^2.2.1
+  auto_animated: ^3.1.0
+  flutter_staggered_animations: ^1.0.0
 
 dev_dependencies:
   flutter_test:
