@@ -4,16 +4,33 @@ import 'package:learn_programming/widgets/institutes_button.dart';
 import 'package:learn_programming/widgets/language_button.dart';
 import 'package:learn_programming/models/institutes_card_model.dart';
 import 'package:learn_programming/pages/language_pages/cLang.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: false,
       // appBar: AppBar(backgroundColor:  Color(0xFFF6F9FF),),
       backgroundColor: Color(0xFFF6F9FF),
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+              backgroundColor: Color(0xFFF6F9FF),
+              icons: [Icons.home_outlined, Icons.explore],
+              activeIndex: 0,
+              gapLocation: GapLocation.center,
+              notchSmoothness: NotchSmoothness.verySmoothEdge,
+              leftCornerRadius: 32,
+              rightCornerRadius: 32,
+              onTap: (index) {
+              }
+      ),
       body: Container(
         // decoration: BoxDecoration(
         //   gradient: LinearGradient(

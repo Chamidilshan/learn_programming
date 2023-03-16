@@ -47,6 +47,7 @@ dependencies:
   flutter_fadein: ^2.0.0
   flutter_animate: ^4.1.0
   flutter_native_splash: ^2.2.18
+  animated_bottom_navigation_bar: ^1.2.0
 
 dev_dependencies:
   flutter_test:
