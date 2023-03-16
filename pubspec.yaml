@@ -50,6 +50,7 @@ dependencies:
   animated_bottom_navigation_bar: ^1.2.0
   curved_navigation_bar: ^1.0.3
   google_nav_bar: ^5.0.6
+  youtube_player_flutter: ^8.1.2
 
 dev_dependencies:
   flutter_test:

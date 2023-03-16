@@ -19,25 +19,14 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: false,
       // appBar: AppBar(backgroundColor:  Color(0xFFF6F9FF),),
       backgroundColor: Color(0xFFF6F9FF),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black45
-            )
-          ],
-        ),
-        child: GNav(
-          haptic: false,
-          backgroundColor: Color(0xFFF6F9FF),
-          activeColor: Colors.black,
-          gap: 4.0,
-          tabs: [
-            GButton(icon: Icons.home, text: 'Home'),
-            GButton(icon: Icons.search, text: 'Search'),
-            GButton(icon: Icons.favorite,text: 'Favourite')
-          ],
-        ),
+      bottomNavigationBar: GNav(
+        backgroundColor: Color(0xFFF6F9FF),
+        gap: 4.0,
+        tabs: [
+          GButton(icon: Icons.home, text: 'Home'),
+          GButton(icon: Icons.search, text: 'Search'),
+          GButton(icon: Icons.favorite,text: 'Favourite')
+        ],
       ),
       body: Container(
         // decoration: BoxDecoration(
