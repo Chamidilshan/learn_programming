@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:learn_programming/widgets/institutes_button.dart';
 import 'package:learn_programming/widgets/language_button.dart';
-import 'package:learn_programming/models/institutes_card_model.dart';
-import 'package:learn_programming/pages/language_pages/cLang.dart';
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,16 +19,25 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: false,
       // appBar: AppBar(backgroundColor:  Color(0xFFF6F9FF),),
       backgroundColor: Color(0xFFF6F9FF),
-      bottomNavigationBar: AnimatedBottomNavigationBar(
-              backgroundColor: Color(0xFFF6F9FF),
-              icons: [Icons.home_outlined, Icons.explore],
-              activeIndex: 0,
-              gapLocation: GapLocation.center,
-              notchSmoothness: NotchSmoothness.verySmoothEdge,
-              leftCornerRadius: 32,
-              rightCornerRadius: 32,
-              onTap: (index) {
-              }
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black45
+            )
+          ],
+        ),
+        child: GNav(
+          haptic: false,
+          backgroundColor: Color(0xFFF6F9FF),
+          activeColor: Colors.black,
+          gap: 4.0,
+          tabs: [
+            GButton(icon: Icons.home, text: 'Home'),
+            GButton(icon: Icons.search, text: 'Search'),
+            GButton(icon: Icons.favorite,text: 'Favourite')
+          ],
+        ),
       ),
       body: Container(
         // decoration: BoxDecoration(
