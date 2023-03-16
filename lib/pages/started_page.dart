@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:learn_programming/pages/home_page.dart';
 import 'package:shimmer/shimmer.dart';
@@ -51,10 +53,13 @@ class StartedPage extends StatelessWidget {
               width: 200.0,
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                        context, MaterialPageRoute(
-                        builder: (context) => const HomePage()
-                    ),
+                    Timer(
+                        Duration(seconds: 1),
+                            () => Navigator.pushReplacement(
+                              context, MaterialPageRoute(
+                                builder: (context) => const HomePage()
+                            ),
+                            )
                     );
                   },
                 style: ElevatedButton.styleFrom(

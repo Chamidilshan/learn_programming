@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: false,
-      appBar: AppBar(backgroundColor:  Color(0xFFF6F9FF),),
+      // appBar: AppBar(backgroundColor:  Color(0xFFF6F9FF),),
       backgroundColor: Color(0xFFF6F9FF),
       body: Container(
         // decoration: BoxDecoration(
@@ -31,7 +31,19 @@ class HomePage extends StatelessWidget {
                 height: 180.0,
                 width: 300.0,
                 decoration: BoxDecoration(
-                  color: Color(0xFF35323d),
+                  boxShadow: [
+                    BoxShadow(
+                color: Colors.grey.shade600,
+                    spreadRadius: 0,
+                    blurRadius: 5,
+                      blurStyle: BlurStyle.normal
+                    ),
+                    // BoxShadow(
+                    //   color: Colors.grey.shade300,
+                    //   offset: const Offset(-5,0),
+                    // )
+                  ],
+                  color: Color(0xFFF6F9FF),
                   borderRadius: BorderRadius.circular(16.0),
                 ),
                 child: Column(
@@ -43,7 +55,7 @@ class HomePage extends StatelessWidget {
                         'Select a programming\nlanguage and explore courses',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20.0
                       ),
                     ),
@@ -83,24 +95,24 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 60.0,
+              height: 20.0,
             ),
             Languages(),
             SizedBox(
               height: 20.0,
             ),
-            // Row(
-            //   children: [
-            //     Text(
-            //       'Institutes With Free Certifications',
-            //       style: Theme.of(context).textTheme.headline6,
-            //     )
-            //   ],
-            // ),
-            SizedBox(
-              height: 20.0,
+            Row(
+              children: [
+                Text(
+                  'Institutes With Free Certifications',
+                  style: Theme.of(context).textTheme.headline6,
+                )
+              ],
             ),
-            // Institutes(),
+            SizedBox(
+              height: 10.0,
+            ),
+            Institutes(),
             // SizedBox(
             //   height: 20.0,
             // ),

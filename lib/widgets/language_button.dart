@@ -5,19 +5,24 @@ import 'package:learn_programming/pages/course_page.dart';
 import 'package:learn_programming/pages/language_pages/cLang.dart';
 import 'package:learn_programming/pages/page.dart';
 
-class Languages extends StatelessWidget {
+class Languages extends StatefulWidget {
   const Languages({Key? key}) : super(key: key);
 
   @override
+  State<Languages> createState() => _LanguagesState();
+}
+
+class _LanguagesState extends State<Languages> {
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 235.0,
+      height: 190.0,
       child: ListView.separated(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
           itemBuilder: (context, index){
             return SizedBox(
-              width: 220.0,
+              width: 200.0,
               child: Card(
                 color:  Color(0xFFF6F9FF),
                 elevation: 0.5,
@@ -28,6 +33,8 @@ class Languages extends StatelessWidget {
                 ),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(12),
+                  splashColor: Color(0xFFFDD807),
+                  highlightColor: Colors.grey,
                   onTap: () {
                     Navigator.push(
                         context,
@@ -43,8 +50,7 @@ class Languages extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
                           child: Image.asset(languages[index].image,
-                          height: 160.0,
-                            width: double.maxFinite,
+                            width: 120.0,
                             fit: BoxFit.cover,
                           ),
                         ),
