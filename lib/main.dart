@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_programming/pages/course_page.dart';
+import 'package:learn_programming/pages/edited.dart';
 import 'package:learn_programming/pages/home_page.dart';
 import 'package:learn_programming/pages/language_pages/cLang.dart';
 import 'package:learn_programming/pages/video_page.dart';
@@ -30,7 +31,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: VideoPage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
