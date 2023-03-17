@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:learn_programming/models/languages_card_model.dart';
 import 'package:learn_programming/pages/course_page.dart';
-import 'package:learn_programming/pages/language_pages/cLang.dart';
-import 'package:learn_programming/pages/page.dart';
+import 'package:learn_programming/edited_pages/cLang.dart';
+import 'package:learn_programming/edited_pages/page.dart';
 
 class Languages extends StatefulWidget {
   const Languages({Key? key}) : super(key: key);

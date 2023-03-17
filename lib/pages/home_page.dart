@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:learn_programming/pages/video_page.dart';
 import 'package:learn_programming/widgets/institutes_button.dart';
 import 'package:learn_programming/widgets/language_button.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,37 +14,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if (_selectedIndex == 1) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => VideoPage()),
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: false,
       backgroundColor: Color(0xFF373451),
-      bottomNavigationBar: GNav(
-        backgroundColor: Color(0xFF373451),
-        gap: 4.0,
-        activeColor: Colors.black,
-        color: Colors.white,
-        tabBackgroundColor: Colors.white,
-        iconSize: 24.0,
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-        tabs: [
-          GButton(
-            icon: Icons.home,
-            text: 'Home',
-            textStyle: TextStyle(fontSize: 16.0),
-          ),
-          GButton(
-            icon: Icons.search,
-            text: 'Search',
-            textStyle: TextStyle(fontSize: 16.0),
-          ),
-          GButton(
-            icon: Icons.favorite,
-            text: 'Favourite',
-            textStyle: TextStyle(fontSize: 16.0),
-          ),
-        ],
-      ),
+      bottomNavigationBar: CustomNavBar(),
       body: Container(
         color: Color(0xFF373451),
         child: SingleChildScrollView(
@@ -107,9 +99,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-                    SizedBox(
-                      height: 25.0,
-                    ),
+              SizedBox(
+                height: 25.0,
+              ),
               Row(
                 children: [
                   SizedBox(
@@ -117,7 +109,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Text(
                     'Programming Languages',
-                    style: Theme.of(context).textTheme.headline6?.apply(color: Colors.white),
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .headline6
+                        ?.apply(color: Colors.white),
                   )
                 ],
               ),
@@ -135,7 +131,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Text(
                     'Top Institutes',
-                    style: Theme.of(context).textTheme.headline6?.apply(color: Colors.white),
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .headline6
+                        ?.apply(color: Colors.white),
                   )
                 ],
               ),
@@ -143,11 +143,51 @@ class _HomePageState extends State<HomePage> {
                 height: 10.0,
               ),
               Institutes(),
-                  ],
-                ),
-              ).animate().fade(duration: 600.ms),
-            ),
+            ],
+          ),
+        ).animate().fade(duration: 600.ms),
+      ),
 
     );
   }
+
+  Container CustomNavBar() {
+    return Container(
+      padding: EdgeInsets.all(6.0),
+      child: GNav(
+        backgroundColor: Color(0xFF373451),
+        gap: 4.0,
+        activeColor: Colors.black,
+        color: Colors.white,
+        tabBackgroundColor: Colors.white,
+        iconSize: 24.0,
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+        tabs: [
+          GButton(
+            icon: Icons.home,
+            text: 'Home',
+            textStyle: TextStyle(fontSize: 16.0),
+          ),
+          GButton(
+            icon: Icons.search,
+            text: 'Search',
+            textStyle: TextStyle(fontSize: 16.0),
+          ),
+          GButton(icon: Icons.youtube_searched_for,
+            text: 'Videos',
+            textStyle: TextStyle(fontSize: 16.0),
+          ),
+          GButton(
+            icon: Icons.favorite,
+            text: 'Favourite',
+            textStyle: TextStyle(fontSize: 16.0),
+          ),
+        ],
+        selectedIndex: _selectedIndex,
+        onTabChange: _onItemTapped,
+        duration: Duration(milliseconds: 1000),
+      ),
+    );
+  }
+
 }

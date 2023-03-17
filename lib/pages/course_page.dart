@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:learn_programming/models/languages_card_model.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shimmer/shimmer.dart';
 
 
 class CoursesPage extends StatefulWidget {
@@ -45,7 +46,9 @@ class _CoursesPageState extends State<CoursesPage> {
                   return Container(child: Center(child: Text('Something went wrong')));
                 }
                 if(snapshot.connectionState == ConnectionState.waiting){
-                  return Container(child: Center(child: CircularProgressIndicator( color: Color(0xFFF6F9FF),)));
+                  return Container(child: Center(
+                      child: CircularProgressIndicator( color: Color(0xFFF6F9FF),))
+                  );
                 }
 
                 final data = snapshot.requireData;
@@ -98,7 +101,7 @@ class _CoursesPageState extends State<CoursesPage> {
                                 SizedBox(width: 24),
                               ],
                             ),
-                            SizedBox(height: 16),
+                            SizedBox(height: 6.0),
                             Text(
                               'Programming Language',
                               style: GoogleFonts.poppins(
@@ -260,23 +263,6 @@ class _CoursesPageState extends State<CoursesPage> {
   }
 }
 
-class CustomClipPath extends CustomClipper<Path>{
-  @override
-  Path getClip(Size size){
-    double w = size.width;
-    double h = size.height;
-    final path = Path();
-    path.lineTo(0, h-100);
-    path.quadraticBezierTo(w*0.5, h ,w, h);
-    path.lineTo(w, 0);
-    path.close();
-    return path;
-  }
 
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return false;
-  }}
 
 

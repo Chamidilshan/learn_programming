@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:learn_programming/pages/home_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPage extends StatefulWidget {
@@ -18,6 +20,16 @@ class _VideoPageState extends State<VideoPage> {
   ];
   List<String> videoIDs = [];
 
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    if (index == 0) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomePage()));
+    }
+  }
 
   late YoutubePlayerController _controller;
 
@@ -33,7 +45,7 @@ class _VideoPageState extends State<VideoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF6F9FF),
+      backgroundColor: Color(0xFF373451),
       appBar: AppBar(
         backgroundColor: Color(0xFFF6F9FF),
         title: Text(
@@ -42,6 +54,42 @@ class _VideoPageState extends State<VideoPage> {
             color: Colors.black
           ),
         ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(6.0),
+        child: GNav(
+          backgroundColor: Color(0xFF373451),
+          gap: 4.0,
+          activeColor: Colors.black,
+          color: Colors.white,
+          tabBackgroundColor: Colors.white,
+          iconSize: 24.0,
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+          tabs: [
+            GButton(
+              icon: Icons.home,
+              text: 'Home',
+              textStyle: TextStyle(fontSize: 16.0),
+            ),
+            GButton(
+              icon: Icons.search,
+              text: 'Search',
+              textStyle: TextStyle(fontSize: 16.0),
+            ),
+            GButton(icon: Icons.youtube_searched_for,
+              text: 'Videos',
+              textStyle: TextStyle(fontSize: 16.0),
+            ),
+            GButton(
+              icon: Icons.favorite,
+              text: 'Favourite',
+              textStyle: TextStyle(fontSize: 16.0),
+            ),
+          ],
+          selectedIndex: _selectedIndex,
+          onTabChange: _onItemTapped,
+            duration: Duration(milliseconds: 1000),
+            ),
       ),
       body: ListView.builder(
         itemCount: videoIDs.length,
