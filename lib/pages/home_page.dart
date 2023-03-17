@@ -16,11 +16,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: false,
-      backgroundColor: Colors.red,
+      backgroundColor: Color(0xFF373451),
       bottomNavigationBar: GNav(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFF373451),
         gap: 4.0,
         activeColor: Colors.black,
+        color: Colors.white,
+        tabBackgroundColor: Colors.white,
         iconSize: 24.0,
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         tabs: [
@@ -42,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Container(
-        color: Colors.white,
+        color: Color(0xFF373451),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 300.0,
+                    height: 260.0,
                     decoration: BoxDecoration(
                       color: Color(0xFF373451),
                       borderRadius: BorderRadius.only(
@@ -110,9 +112,12 @@ class _HomePageState extends State<HomePage> {
                     ),
               Row(
                 children: [
+                  SizedBox(
+                    width: 10.0,
+                  ),
                   Text(
                     'Programming Languages',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headline6?.apply(color: Colors.white),
                   )
                 ],
               ),
@@ -125,9 +130,12 @@ class _HomePageState extends State<HomePage> {
               ),
               Row(
                 children: [
+                  SizedBox(
+                    width: 10.0,
+                  ),
                   Text(
                     'Top Institutes',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headline6?.apply(color: Colors.white),
                   )
                 ],
               ),
@@ -135,12 +143,6 @@ class _HomePageState extends State<HomePage> {
                 height: 10.0,
               ),
               Institutes(),
-              SizedBox(
-                height: 20.0,
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
                   ],
                 ),
               ).animate().fade(duration: 600.ms),

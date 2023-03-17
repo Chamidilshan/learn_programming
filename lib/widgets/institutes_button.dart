@@ -8,13 +8,13 @@ class Institutes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 190.0,
+      height: 170.0,
       child: ListView.separated(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index){
           return SizedBox(
-            width: 200.0,
+            width: 180.0,
             child: Card(
               elevation: 0.5,
               color:  Color(0xFFF6F9FF),
@@ -39,7 +39,7 @@ class Institutes extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.asset(institutes[index].image,
-                          width: 100.0,
+                          width: 80.0,
                           fit: BoxFit.cover,
                         ),
                       ),

@@ -16,15 +16,15 @@ class _LanguagesState extends State<Languages> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 190.0,
+      height: 170.0,
       child: ListView.separated(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
           itemBuilder: (context, index){
             return SizedBox(
-              width: 200.0,
+              width: 180.0,
               child: Card(
-                color:  Color(0xFFF6F9FF),
+                color:  Colors.white,
                 elevation: 0.5,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
@@ -39,7 +39,7 @@ class _LanguagesState extends State<Languages> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CoursePage(languageCard: languages[index]),
+                            builder: (context) => CoursesPage(languageCard: languages[index]),
                         )
                     );
                   },
@@ -50,7 +50,7 @@ class _LanguagesState extends State<Languages> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
                           child: Image.asset(languages[index].image,
-                            width: 120.0,
+                            width: 100.0,
                             fit: BoxFit.cover,
                           ),
                         ),

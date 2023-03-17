@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:learn_programming/models/languages_card_model.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:learn_programming/models/languages_card_model.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -58,10 +54,10 @@ class _CoursesPageState extends State<CoursesPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 300,
+                      height: 460.0,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Colors.blueGrey,
+                        color: Color(0xFF373451),
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(30),
                           bottomRight: Radius.circular(30),
@@ -120,16 +116,20 @@ class _CoursesPageState extends State<CoursesPage> {
                                 fontSize: 16,
                               ),
                             ),
+                            SizedBox(
+                              height: 16.0,
+                            ),
+                            Center(child: Image.asset('images/edited.png', width: 240.0,))
                           ],
                         ),
                       ),
-                    ),
+                    ).animate().fade(duration: 800.ms),
                     SizedBox(
                       height: 40.0,
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Color(0xFF373451),
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0)
                           )
@@ -140,7 +140,7 @@ class _CoursesPageState extends State<CoursesPage> {
                         children: [
                            Text('Explore Courses',
                              style: GoogleFonts.poppins(
-                               color: Colors.black,
+                               color: Colors.white,
                                fontWeight: FontWeight.w600,
                                fontSize: 20,
                              ),
@@ -160,61 +160,66 @@ class _CoursesPageState extends State<CoursesPage> {
                                      child: GestureDetector(
                                        onTap: () {print('Pressed');},
                                        child: Container(
-                                         child: Row(
-                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                           children: [
-                                             Image.asset('images/code.png', width: 40.0,),
-                                             SizedBox(
-                                               width: 10.0,
-                                             ),
-                                             Expanded(
-                                               child: Column(
-                                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                                 children: [
-                                                   SizedBox(height: 10.0),
-                                                   Text(data.docs[index]['name'],
-                                                       style: TextStyle(
-                                                           fontWeight: FontWeight.w600
-                                                       )
-                                                   ),
-                                                   SizedBox(height: 10.0),
-                                                   Row(
-                                                     children: [
-                                                       Text(data.docs[index]['inst'],
-                                                         style: TextStyle(
-                                                             color: Colors.grey.shade700
-                                                         ),
-                                                       ),
-                                                       SizedBox(
-                                                         height: 20.0,
-                                                         child: VerticalDivider(
-                                                           color: Colors.white,
-                                                         ),
-                                                       ),
-                                                       Text('6 Hours',
-                                                         style: TextStyle(
-                                                             color: Colors.grey.shade700
-                                                         ),
-                                                       )
-                                                     ],
-                                                   )
-                                                 ],
+                                         child: Padding(
+                                           padding: const EdgeInsets.all(6.0),
+                                           child: Row(
+                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                             children: [
+                                               Image.asset('images/code.png', width: 40.0,),
+                                               SizedBox(
+                                                 width: 10.0,
                                                ),
-                                             ),
-                                             SizedBox(
-                                               height: 40.0,
-                                               child: VerticalDivider(
-                                                 color: Colors.white,
+                                               Expanded(
+                                                 child: Column(
+                                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                                   children: [
+                                                     SizedBox(height: 10.0),
+                                                     Text(data.docs[index]['name'],
+                                                         style: TextStyle(
+                                                             fontWeight: FontWeight.w600
+                                                         )
+                                                     ),
+                                                     SizedBox(
+                                                       height: 4.0,
+                                                     ),
+                                                     Row(
+                                                       children: [
+                                                         Text(data.docs[index]['inst'],
+                                                           style: TextStyle(
+                                                               color: Colors.grey.shade700
+                                                           ),
+                                                         ),
+                                                         SizedBox(
+                                                           height: 20.0,
+                                                           child: VerticalDivider(
+                                                             color: Colors.white,
+                                                           ),
+                                                         ),
+                                                         Text('6 Hours',
+                                                           style: TextStyle(
+                                                               color: Colors.grey.shade700
+                                                           ),
+                                                         )
+                                                       ],
+                                                     )
+                                                   ],
+                                                 ),
                                                ),
-                                             ),
-                                             Image.asset('images/award.png', width: 20.0,),
-                                             SizedBox(
-                                               width: 10.0,
-                                             )
-                                           ],
+                                               SizedBox(
+                                                 height: 40.0,
+                                                 child: VerticalDivider(
+                                                   color: Colors.white,
+                                                 ),
+                                               ),
+                                               Image.asset('images/award.png', width: 20.0,),
+                                               SizedBox(
+                                                 width: 10.0,
+                                               )
+                                             ],
+                                           ),
                                          ),
                                          width: double.infinity,
-                                         height: 70.0,
+                                         height: 76.0,
                                          decoration: BoxDecoration(
                                              color: Colors.white,
                                              borderRadius: BorderRadius.circular(16.0),
@@ -245,8 +250,10 @@ class _CoursesPageState extends State<CoursesPage> {
             ),
           ),
         ),
-        replacement: Center(
-          child: CircularProgressIndicator(),
+        replacement: Container(
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
         ),
       ),
     );
