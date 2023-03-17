@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: false,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.red,
       bottomNavigationBar: GNav(
         backgroundColor: Colors.white,
         gap: 4.0,
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                     width: double.infinity,
                     height: 300.0,
                     decoration: BoxDecoration(
-                      color: Color(0xFFFDD807),
+                      color: Color(0xFF373451),
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(30.0),
                         bottomRight: Radius.circular(30.0),
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'Learn Programming',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                           'Discover a new world of programming languages',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 16.0,
                             fontWeight: FontWeight.normal,
                           ),
@@ -103,68 +103,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  // Positioned(
-                  //   bottom: 0.0,
-                  //   left: 0.0,
-                  //   right: 0.0,
-                  //   child: Container(
-                  //     margin: EdgeInsets.symmetric(horizontal: 40.0),
-                  //     height: 80.0,
-                  //     decoration: BoxDecoration(
-                  //       boxShadow: [
-                  //         BoxShadow(
-                  //           color: Colors.grey.shade600,
-                  //           spreadRadius: 0,
-                  //           blurRadius: 5,
-                  //           blurStyle: BlurStyle.normal,
-                  //         ),
-                  //       ],
-                  //       color: Colors.white,
-                  //       borderRadius: BorderRadius.circular(16.0),
-                  //     ),
-                  //     child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //       children: [
-                  //         Container(
-                  //           padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  //           child: Column(
-                  //             crossAxisAlignment: CrossAxisAlignment.start,
-                  //             mainAxisAlignment: MainAxisAlignment.center,
-                  //             children: [
-                  //               Text(
-                  //                 'Featured Languages',
-                  //                 style: TextStyle(
-                  //                   fontWeight: FontWeight.bold,
-                  //                   fontSize: 18.0,
-                  //                 ),
-                  //               ),
-                  //               SizedBox(height: 4.0),
-                  //               Text(
-                  //                 '20 languages available',
-                  //                 style: TextStyle(
-                  //                   fontWeight: FontWeight.normal,
-                  //                   fontSize: 14.0,
-                  //                   color: Colors.grey,
-                  //                 ),
-                  //               ),
-                  //             ],
-                  //           ),
-                  //         ),
-                  //         TextButton(
-                  //           onPressed: () {},
-                  //           child: Text(
-                  //             'View All',
-                  //             style: TextStyle(
-                  //               color: Colors.orange,
-                  //               fontSize: 14.0,
-                  //               fontWeight: FontWeight.bold,
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
                     SizedBox(
@@ -188,7 +126,7 @@ class _HomePageState extends State<HomePage> {
               Row(
                 children: [
                   Text(
-                    'Institutes With Free Certifications',
+                    'Top Institutes',
                     style: Theme.of(context).textTheme.headline6,
                   )
                 ],

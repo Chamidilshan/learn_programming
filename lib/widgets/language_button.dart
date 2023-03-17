@@ -39,7 +39,7 @@ class _LanguagesState extends State<Languages> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CoursesPage(languageCard: languages[index]),
+                            builder: (context) => CoursePage(languageCard: languages[index]),
                         )
                     );
                   },

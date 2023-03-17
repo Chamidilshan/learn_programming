@@ -7,6 +7,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class CoursesPage extends StatefulWidget {
@@ -36,7 +37,7 @@ class _CoursesPageState extends State<CoursesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F9FF),
+      backgroundColor: const Color(0xFF373451),
       body: Visibility(
         visible: isLoaded,
         child: SafeArea(
@@ -57,44 +58,74 @@ class _CoursesPageState extends State<CoursesPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
+                      height: 300,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(30),
+                          bottomRight: Radius.circular(30),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: Offset(0, 5),
+                          ),
+                        ],
+                      ),
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10.0, left: 28.0, right: 28.0),
+                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset('images/edited.png', width: 350.0,),
-                            Container(
-                              padding: EdgeInsets.all(20.0),
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFDD807),
-                                // color: Colors.pink,
-                                borderRadius: BorderRadius.circular(40.0)
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  icon: Icon(
+                                    Icons.arrow_back_ios,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  widget.languageCard.name.toUpperCase(),
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                SizedBox(width: 24),
+                              ],
+                            ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Programming Language',
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 30,
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('${widget.languageCard.name} Proramming Languague',
-                                    style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.black),
-                                  ),
-                                  SizedBox(
-                                    height: 10.0,
-                                  ),
-                                  Text('${widget.languageCard.description}',
-                                    style: TextStyle(
-                                        color: Colors.black54
-                                    ),
-                                  ),
-                                ],
+                            ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Learn ${widget.languageCard.name} programming language through our curated courses and improve your skills.',
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
                               ),
                             ),
                           ],
                         ),
-                      ).animate()
-                            .fade(duration: 400.ms),
-                      height: 540.0,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
                       ),
+                    ),
+                    SizedBox(
+                      height: 40.0,
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -108,9 +139,10 @@ class _CoursesPageState extends State<CoursesPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                            Text('Explore Courses',
-                             style: TextStyle(
-                                 fontSize: 20.0,
-                                 fontWeight: FontWeight.w900
+                             style: GoogleFonts.poppins(
+                               color: Colors.black,
+                               fontWeight: FontWeight.w600,
+                               fontSize: 20,
                              ),
                            ),
                           SizedBox(

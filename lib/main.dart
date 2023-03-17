@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_programming/pages/course_page.dart';
-import 'package:learn_programming/pages/edited.dart';
 import 'package:learn_programming/pages/home_page.dart';
-import 'package:learn_programming/pages/language_pages/cLang.dart';
-import 'package:learn_programming/pages/video_page.dart';
-import 'package:learn_programming/widgets/language_button.dart';
-import 'pages/started_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 
