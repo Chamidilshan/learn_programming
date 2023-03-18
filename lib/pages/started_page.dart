@@ -10,13 +10,13 @@ class StartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF35323d),
+      backgroundColor: const Color(0xFF373451),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 10.0),
-            child: Image.asset('images/stpge.png',
+            padding: const EdgeInsets.only(top: 80.0),
+            child: Image.asset('images/stpgenew.png',
             ),
           ),
           Column(

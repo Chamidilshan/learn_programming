@@ -46,15 +46,6 @@ class _VideoPageState extends State<VideoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF373451),
-      appBar: AppBar(
-        backgroundColor: Color(0xFFF6F9FF),
-        title: Text(
-            'Motivation to programming',
-          style: TextStyle(
-            color: Colors.black
-          ),
-        ),
-      ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(6.0),
         child: GNav(
@@ -91,27 +82,58 @@ class _VideoPageState extends State<VideoPage> {
             duration: Duration(milliseconds: 1000),
             ),
       ),
-      body: ListView.builder(
-        itemCount: videoIDs.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: YoutubePlayer(
-                  controller: YoutubePlayerController(
-                    initialVideoId: videoIDs[index],
-                    flags: YoutubePlayerFlags(
-                      autoPlay: false
-                    ),
-                  ),
-                  showVideoProgressIndicator: true,
-                ),
-              ),
-            ),
-          );
-        },
-      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text('Hello', style: TextStyle(color: Colors.red)),
+              VideoWidget(videoIDs: videoIDs)
+            ],
+          ),
+        ),
+      ) ,
     );
   }
 }
+
+class VideoWidget extends StatelessWidget {
+  const VideoWidget({
+    Key? key,
+    required this.videoIDs,
+  }) : super(key: key);
+
+  final List<String> videoIDs;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: videoIDs.length,
+      itemBuilder: (BuildContext context, int index) {
+        return SizedBox(
+          height: 400.0,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 280.0,
+              child: Column(
+                children: [
+                  YoutubePlayer(
+                    controller: YoutubePlayerController(
+                      initialVideoId: videoIDs[index],
+                      flags: YoutubePlayerFlags(
+                        autoPlay: false
+                      ),
+                    ),
+                    showVideoProgressIndicator: true,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+// VideoWidget(videoIDs: videoIDs)
