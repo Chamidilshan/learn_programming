@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:learn_programming/pages/home_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:hidable/hidable.dart';
 
 class VideoPage extends StatefulWidget {
   const VideoPage({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _VideoPageState extends State<VideoPage> {
   List<String> videoURLs = [
     'https://www.youtube.com/watch?v=bJzb-RuUcMU',
     'https://www.youtube.com/watch?v=k9WqpQp8VSU',
-    // 'https://www.youtube.com/watch?v=zOjov-2OZ0E&t=4494s',
+     'https://www.youtube.com/watch?v=zOjov-2OZ0E&t=4494s',
     // 'https://www.youtube.com/watch?v=79pKwdiqcwI',
     // 'https://www.youtube.com/watch?v=Mj3QejzYZ70'
   ];
@@ -105,8 +106,10 @@ class VideoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController scrollController = ScrollController();
     return ListView.builder(
       scrollDirection: Axis.vertical,
+      controller: scrollController,
       shrinkWrap: true,
       itemCount: videoIDs.length,
       itemBuilder: (BuildContext context, int index) {
@@ -143,3 +146,19 @@ class VideoWidget extends StatelessWidget {
 }
 
 // VideoWidget(videoIDs: videoIDs)
+
+class ScrollListener extends ChangeNotifier {
+  double bottom = 0;
+  double _last = 0;
+
+  ScrollListener.initialise(ScrollController controller, [double height = 56]) {
+    controller.addListener(() {
+      final current = controller.offset;
+      bottom += _last - current;
+      if (bottom <= -height) bottom = -height;
+      if (bottom >= 0) bottom = 0;
+      _last = current;
+      if (bottom <= 0 && bottom >= -height) notifyListeners();
+    });
+  }
+}

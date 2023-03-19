@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
         selectedIndex: _selectedIndex,
         onTabChange: _onItemTapped,
         duration: Duration(milliseconds: 1000),
-      ).animate().fade(duration: 100.ms),
+      ).animate().fade(duration: 200.ms),
     );
   }
 
