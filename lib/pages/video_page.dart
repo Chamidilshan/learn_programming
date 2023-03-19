@@ -86,7 +86,6 @@ class _VideoPageState extends State<VideoPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text('Hello', style: TextStyle(color: Colors.red)),
               VideoWidget(videoIDs: videoIDs)
             ],
           ),
@@ -107,14 +106,20 @@ class VideoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
       itemCount: videoIDs.length,
       itemBuilder: (BuildContext context, int index) {
-        return SizedBox(
-          height: 400.0,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 280.0,
+        return Padding(
+          padding: const EdgeInsets.all(28.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Colors.white
+            ),
+            height: 360.0,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   YoutubePlayer(
@@ -126,6 +131,7 @@ class VideoWidget extends StatelessWidget {
                     ),
                     showVideoProgressIndicator: true,
                   ),
+                  Text('This simple tutorial will teach you how you can learn computer programming and teach yourself code. Learning code is not that hard, and its easier than it looks. Instead of taking coding classes, why not teach yourself? Using this method you will learn html, css, javascript, visual design & more. Many people have landed themselves jobs involving web development and web design just with using this site. So what are you waiting for? Get started now!'),
                 ],
               ),
             ),
