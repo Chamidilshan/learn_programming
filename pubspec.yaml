@@ -43,7 +43,7 @@ dependencies:
   animation_list: ^2.2.1
   auto_animated: ^3.1.0
   flutter_staggered_animations: ^1.0.0
-  shimmer: ^2.0.0
+  shimmer: ^3.0.0
   flutter_fadein: ^2.0.0
   flutter_animate: ^4.1.0
   flutter_native_splash: ^2.2.18
@@ -51,7 +51,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   google_nav_bar: ^5.0.6
   youtube_player_flutter: ^8.1.2
-  google_fonts: ^4.0.3
+  google_fonts: ^5.1.0
   smooth_page_indicator: ^1.0.1
   hidable: ^1.0.3
 

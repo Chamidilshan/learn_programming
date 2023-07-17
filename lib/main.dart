@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_programming/pages/dashboard.dart';
 import 'package:learn_programming/pages/home_page.dart';
 import 'package:learn_programming/pages/started_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: StartedPage(),
+      home: DashBoard(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -46,8 +46,11 @@ class _CoursesPageState extends State<CoursesPage> {
                   return Container(child: Center(child: Text('Something went wrong')));
                 }
                 if(snapshot.connectionState == ConnectionState.waiting){
-                  return Container(child: Center(
-                      child: CircularProgressIndicator( color: Color(0xFFF6F9FF),))
+                  return SizedBox(
+                    height: MediaQuery.of(context).size.height /1.3,
+                    child: Center(
+                      child: CircularProgressIndicator(color: Colors.yellow,),
+                    ),
                   );
                 }
 

@@ -21,54 +21,57 @@ class _LanguagesState extends State<Languages> {
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
           itemBuilder: (context, index){
-            return SizedBox(
-              width: 180.0,
-              child: Card(
-                color:  Colors.white,
-                elevation: 0.5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(12),
+            return Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: SizedBox(
+                width: 180.0,
+                child: Card(
+                  color:  Colors.white,
+                  elevation: 0.5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(12),
+                    ),
                   ),
-                ),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(12),
-                  splashColor: Color(0xFFFDD807),
-                  highlightColor: Colors.grey,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CoursesPage(languageCard: languages[index]),
-                        )
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(12.0),
-                          child: Image.asset(languages[index].image,
-                            width: 100.0,
-                            fit: BoxFit.cover,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    splashColor: Color(0xFFFDD807),
+                    highlightColor: Colors.grey,
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CoursesPage(languageCard: languages[index]),
+                          )
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(12.0),
+                            child: Image.asset(languages[index].image,
+                              width: 100.0,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              languages[index].name,
-                              style: TextStyle(
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                languages[index].name,
+                                style: TextStyle(
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

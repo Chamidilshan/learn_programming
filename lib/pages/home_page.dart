@@ -4,7 +4,7 @@ import 'package:learn_programming/pages/video_page.dart';
 import 'package:learn_programming/widgets/institutes_button.dart';
 import 'package:learn_programming/widgets/language_button.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBodyBehindAppBar: false,
       backgroundColor: Color(0xFF373451),
-      bottomNavigationBar: CustomNavBar(),
+      // bottomNavigationBar: CustomNavBar(),
       body: Container(
         color: Color(0xFF373451),
         child: SingleChildScrollView(
@@ -69,10 +69,10 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'Discover a new world of programming languages',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             color: Colors.white,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.normal,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
                           ),
                         ),
                         SizedBox(height: 40.0),

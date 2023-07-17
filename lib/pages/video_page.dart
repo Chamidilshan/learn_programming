@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:learn_programming/pages/home_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -47,46 +48,33 @@ class _VideoPageState extends State<VideoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF373451),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.all(6.0),
-        child: GNav(
-          backgroundColor: Color(0xFF373451),
-          gap: 4.0,
-          activeColor: Colors.black,
-          color: Colors.white,
-          tabBackgroundColor: Colors.white,
-          iconSize: 24.0,
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-          tabs: [
-            GButton(
-              icon: Icons.home,
-              text: 'Home',
-              textStyle: TextStyle(fontSize: 16.0),
-            ),
-            GButton(
-              icon: Icons.search,
-              text: 'Search',
-              textStyle: TextStyle(fontSize: 16.0),
-            ),
-            GButton(icon: Icons.youtube_searched_for,
-              text: 'Videos',
-              textStyle: TextStyle(fontSize: 16.0),
-            ),
-            GButton(
-              icon: Icons.favorite,
-              text: 'Favourite',
-              textStyle: TextStyle(fontSize: 16.0),
-            ),
-          ],
-          selectedIndex: _selectedIndex,
-          onTabChange: _onItemTapped,
-            duration: Duration(milliseconds: 1000),
-            ),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 28.0, top: 28.0),
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 44.0),
+                child: Text('Discover the world of Programming',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 26.0,
+                  ),
+                ),
+              ),
               VideoWidget(videoIDs: videoIDs)
             ],
           ),
@@ -117,10 +105,10 @@ class VideoWidget extends StatelessWidget {
           padding: const EdgeInsets.all(28.0),
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(10.0),
               color: Colors.white
             ),
-            height: 360.0,
+            height: 320.0,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -134,7 +122,14 @@ class VideoWidget extends StatelessWidget {
                     ),
                     showVideoProgressIndicator: true,
                   ),
-                  Text('This simple tutorial will teach you how you can learn computer programming and teach yourself code. Learning code is not that hard, and its easier than it looks. Instead of taking coding classes, why not teach yourself? Using this method you will learn html, css, javascript, visual design & more. Many people have landed themselves jobs involving web development and web design just with using this site. So what are you waiting for? Get started now!'),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text('This simple tutorial will teach you how you can learn computer '
+                      'programming and teach yourself code. Learning code is not that hard, '
+                      'and its easier than it looks. Instead of taking coding classes, why not teach '
+                      'yourself? Using this method you will learn html, css, '
+                      'javascript, visual design & more.'),
                 ],
               ),
             ),
