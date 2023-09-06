@@ -34,37 +34,41 @@ class _DashBoardState extends State<DashBoard> {
 
     return Scaffold(
       body: pages[_page],
-      bottomNavigationBar: GNav(
-        backgroundColor: Color(0xFF373451),
-        gap: 4.0,
-        activeColor: Colors.black,
-        color: Colors.white,
-        tabBackgroundColor: Colors.white,
-        iconSize: 24.0,
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-        tabs: [
-          GButton(
-            icon: Icons.home,
-            text: 'Home',
-            textStyle: TextStyle(fontSize: 16.0),
-          ),
-          GButton(
-            icon: Icons.search,
-            text: 'Search',
-            textStyle: TextStyle(fontSize: 16.0),
-          ),
-          GButton(icon: Icons.youtube_searched_for,
-            text: 'Videos',
-            textStyle: TextStyle(fontSize: 16.0),
-          ),
-          GButton(
-            icon: Icons.favorite,
-            text: 'Favourite',
-            textStyle: TextStyle(fontSize: 16.0),
-          ),
-        ],
-        selectedIndex: _page,
-        onTabChange: updatePage,
+      bottomNavigationBar: Container(
+        color: Color(0xFF373451),
+        padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+        child: GNav(
+          backgroundColor: Color(0xFF373451),
+          gap: 4.0,
+          activeColor: Colors.black,
+          color: Colors.white,
+          tabBackgroundColor: Colors.white,
+          iconSize: 24.0,
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+          tabs: [
+            GButton(
+              icon: Icons.home,
+              text: 'Home',
+              textStyle: TextStyle(fontSize: 16.0),
+            ),
+            GButton(
+              icon: Icons.search,
+              text: 'Search',
+              textStyle: TextStyle(fontSize: 16.0),
+            ),
+            GButton(icon: Icons.youtube_searched_for,
+              text: 'Videos',
+              textStyle: TextStyle(fontSize: 16.0),
+            ),
+            GButton(
+              icon: Icons.favorite,
+              text: 'Favourite',
+              textStyle: TextStyle(fontSize: 16.0),
+            ),
+          ],
+          selectedIndex: _page,
+          onTabChange: updatePage,
+        ),
       )
     );
   }

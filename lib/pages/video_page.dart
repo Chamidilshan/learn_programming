@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:learn_programming/pages/home_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:hidable/hidable.dart';
+import 'dart:math';
+
 
 class VideoPage extends StatefulWidget {
   const VideoPage({Key? key}) : super(key: key);
@@ -13,35 +16,29 @@ class VideoPage extends StatefulWidget {
 }
 
 class _VideoPageState extends State<VideoPage> {
-  List<String> videoURLs = [
-    'https://www.youtube.com/watch?v=bJzb-RuUcMU',
-    'https://www.youtube.com/watch?v=k9WqpQp8VSU',
-     'https://www.youtube.com/watch?v=zOjov-2OZ0E&t=4494s',
-    // 'https://www.youtube.com/watch?v=79pKwdiqcwI',
-    // 'https://www.youtube.com/watch?v=Mj3QejzYZ70'
-  ];
-  List<String> videoIDs = [];
-
-  int _selectedIndex = 1;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    if (index == 0) {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomePage()));
-    }
-  }
-
-  late YoutubePlayerController _controller;
+  List<VideoData> videos = [];
+  List<VideoData> randomVideos = [];
 
   @override
-  void initState(){
-    videoIDs = List.generate(videoURLs.length, (index) => '');
-    for(int i = 0; i< videoURLs.length; i++){
-      videoIDs[i] = YoutubePlayer.convertUrlToId(videoURLs[i])!;
-    }
+  void initState() {
     super.initState();
+    fetchVideosFromFirebase();
+  }
+
+  Future<void> fetchVideosFromFirebase() async {
+    final querySnapshot = await FirebaseFirestore.instance.collection('videos').get();
+
+    setState(() {
+      videos = querySnapshot.docs.map((doc) {
+        final data = doc.data() as Map<String, dynamic>;
+        return VideoData(
+          link: data['link'] as String,
+          description: data['description'] as String,
+        );
+      }).toList();
+      videos.shuffle(Random());
+      randomVideos = videos.take(2).toList();  
+    });
   }
 
   @override
@@ -54,43 +51,38 @@ class _VideoPageState extends State<VideoPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 28.0, top: 28.0),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.arrow_back_ios,
+                padding: const EdgeInsets.all(20.0),
+                child: Text(
+                    'Tap to Learn: Exciting Programming Videos',
+                  style: TextStyle(
                     color: Colors.white,
+                    fontSize: 18.0
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.only(left: 44.0),
-                child: Text('Discover the world of Programming',
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 26.0,
-                  ),
-                ),
-              ),
-              VideoWidget(videoIDs: videoIDs)
+              VideoList(videos: randomVideos),
             ],
           ),
         ),
-      ) ,
+      ),
     );
   }
 }
 
-class VideoWidget extends StatelessWidget {
-  const VideoWidget({
-    Key? key,
-    required this.videoIDs,
-  }) : super(key: key);
+class VideoData {
+  final String link;
+  final String description;
 
-  final List<String> videoIDs;
+  VideoData({
+    required this.link,
+    required this.description,
+  });
+}
+
+class VideoList extends StatelessWidget {
+  final List<VideoData> videos;
+
+  const VideoList({Key? key, required this.videos}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -99,14 +91,14 @@ class VideoWidget extends StatelessWidget {
       scrollDirection: Axis.vertical,
       controller: scrollController,
       shrinkWrap: true,
-      itemCount: videoIDs.length,
+      itemCount: videos.length,
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.all(28.0),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: Colors.white
+              color: Colors.white,
             ),
             height: 320.0,
             child: Padding(
@@ -115,9 +107,9 @@ class VideoWidget extends StatelessWidget {
                 children: [
                   YoutubePlayer(
                     controller: YoutubePlayerController(
-                      initialVideoId: videoIDs[index],
+                      initialVideoId: YoutubePlayer.convertUrlToId(videos[index].link) ?? '',
                       flags: YoutubePlayerFlags(
-                        autoPlay: false
+                        autoPlay: false,
                       ),
                     ),
                     showVideoProgressIndicator: true,
@@ -125,11 +117,7 @@ class VideoWidget extends StatelessWidget {
                   SizedBox(
                     height: 10.0,
                   ),
-                  Text('This simple tutorial will teach you how you can learn computer '
-                      'programming and teach yourself code. Learning code is not that hard, '
-                      'and its easier than it looks. Instead of taking coding classes, why not teach '
-                      'yourself? Using this method you will learn html, css, '
-                      'javascript, visual design & more.'),
+                  Text(videos[index].description),
                 ],
               ),
             ),
@@ -137,23 +125,5 @@ class VideoWidget extends StatelessWidget {
         );
       },
     );
-  }
-}
-
-// VideoWidget(videoIDs: videoIDs)
-
-class ScrollListener extends ChangeNotifier {
-  double bottom = 0;
-  double _last = 0;
-
-  ScrollListener.initialise(ScrollController controller, [double height = 56]) {
-    controller.addListener(() {
-      final current = controller.offset;
-      bottom += _last - current;
-      if (bottom <= -height) bottom = -height;
-      if (bottom >= 0) bottom = 0;
-      _last = current;
-      if (bottom <= 0 && bottom >= -height) notifyListeners();
-    });
   }
 }

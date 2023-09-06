@@ -43,7 +43,7 @@ class _CoursesPageState extends State<CoursesPage> {
               stream: courses,
               builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.hasError){
-                  return Container(child: Center(child: Text('Something went wrong')));
+                  return Center(child: Text('Something went wrong'));
                 }
                 if(snapshot.connectionState == ConnectionState.waiting){
                   return SizedBox(
