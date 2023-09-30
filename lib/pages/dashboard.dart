@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:learn_programming/pages/articles_page.dart';
 import 'package:learn_programming/pages/course_page.dart';
 import 'package:learn_programming/pages/home_page.dart';
 import 'package:learn_programming/pages/video_page.dart';
@@ -28,8 +29,8 @@ class _DashBoardState extends State<DashBoard> {
     List<Widget> pages = [
       HomePage(),
       VideoPage(),
-      HomePage(),
-      VideoPage()
+      ArticleScreen()
+      //VideoPage()
     ];
 
     return Scaffold(
@@ -52,19 +53,24 @@ class _DashBoardState extends State<DashBoard> {
               textStyle: TextStyle(fontSize: 16.0),
             ),
             GButton(
-              icon: Icons.search,
-              text: 'Search',
-              textStyle: TextStyle(fontSize: 16.0),
-            ),
-            GButton(icon: Icons.youtube_searched_for,
+              icon: Icons.video_library,
               text: 'Videos',
               textStyle: TextStyle(fontSize: 16.0),
             ),
             GButton(
-              icon: Icons.favorite,
-              text: 'Favourite',
+              icon: Icons.article,
+              text: 'Articles',
               textStyle: TextStyle(fontSize: 16.0),
             ),
+            // GButton(icon: Icons.youtube_searched_for,
+            //   text: 'Videos',
+            //   textStyle: TextStyle(fontSize: 16.0),
+            // ),
+            // GButton(
+            //   icon: Icons.favorite,
+            //   text: 'Favourite',
+            //   textStyle: TextStyle(fontSize: 16.0),
+            // ),
           ],
           selectedIndex: _page,
           onTabChange: updatePage,

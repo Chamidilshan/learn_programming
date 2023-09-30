@@ -34,7 +34,7 @@ class _CoursesPageState extends State<CoursesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF373451),
+
       body: Visibility(
         visible: isLoaded,
         child: SafeArea(
@@ -60,7 +60,6 @@ class _CoursesPageState extends State<CoursesPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 460.0,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Color(0xFF373451),
@@ -225,7 +224,6 @@ class _CoursesPageState extends State<CoursesPage> {
                                            ),
                                          ),
                                          width: double.infinity,
-                                         height: 76.0,
                                          decoration: BoxDecoration(
                                              color: Colors.white,
                                              borderRadius: BorderRadius.circular(16.0),
